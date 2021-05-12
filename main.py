@@ -19,19 +19,19 @@ while(True):
       if i == dy and i == y:
         for u in range(grid):
           if u == dx:
-            print('@ ', end='')
+            print('\033[1;31m@ \033[0;0m', end='')
           elif u == x:
-            print('x ', end='')
+            print('\033[1;32mx \033[0;0m', end='')
           else:
             print('# ', end='')
         print()
       elif i == y:
           print('# '*x, end="")
-          print('x ', end="")
+          print('\033[1;32mx \033[0;0m', end="")
           print('# '*((grid-x)-1))
       elif i == dy:
           print('# '*dx, end="")
-          print('@ ', end="")
+          print('\033[1;31m@ \033[0;0m', end="")
           print('# '*((grid-dx)-1))
       else:  
         for i in range(grid):
@@ -51,17 +51,25 @@ while(True):
       print('You won in', moves,'moves!')
     break
 
-  m = input('Which way would you like to move?(N,E,S or W)').lower()
+  m = input('Which way would you like to move?(W,A,S,D or x2 to sprint) ').lower()
 
-  if m == 'n' and y > 0:
+  if m == 'w' and y > 0:
       y = y-1
-  elif m == 'e' and x < (grid-1):
+  elif m == 'd' and x < (grid-1):
       x = x+1
   elif m == 's' and y < (grid-1):
       y = y+1
-  elif m == 'w' and x >0:
+  elif m == 'a' and x >0:
       x = x-1
+  elif m == 'ww' and y > 0:
+      y = y-2
+  elif m == 'dd' and x < (grid-1):
+      x = x+2
+  elif m == 'ss' and y < (grid-1):
+      y = y+2
+  elif m == 'aa' and x >0:
+      x = x-2
   else:
-      print('Invalid move')
+      print('Incorrect move')
 
   moves = moves + 1
