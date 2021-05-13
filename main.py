@@ -54,7 +54,7 @@ sleep(4)
 os.system("clear")
 
 #allows the player to set how large the map is
-grid = int(input("How large do you want the map to be? Input a number. If you put in 5 the grid will be 5x5, etc."))
+grid = int(input("How large do you want the map to be? Input a number. If you put in 5 the grid will be 5x5, etc.: "))
 
 moves = 0
 x = 0
